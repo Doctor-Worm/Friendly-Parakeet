@@ -13,15 +13,10 @@ var generatePassword = function() {
   var promptCharacters = window.prompt("How many characters would you like in your password?");
   var numberOfCharacters = parseInt(promptCharacters);
   if (numberOfCharacters >= 8 && numberOfCharacters <= 128) {
-  // console.log(numberOfCharacters);
   var includeLowercase = window.confirm("Would you like to include lowercase letters in your password? If yes, click 'OK'. If no, click 'Cancel'.");
-  // console.log(includeLowercase);
   var includeUppercase = window.confirm("Would you like to include uppercase letters in your password? If yes, click 'OK'. If no, click 'Cancel'.");
-  // console.log(includeUppercase);
   var includeNumbers = window.confirm("Would you like to include numbers in your password? If yes, click 'OK'. If no, click 'Cancel'.");
-  // console.log(includeNumbers);
   var includeSymbols = window.confirm("Would you like to include symbols in your password? If yes, click 'OK'. If no, click 'Cancel'.");
-  // console.log(includeSymbols);
   }
   // If all options are return false, make them pick at least one option //
   else {
@@ -29,7 +24,7 @@ var generatePassword = function() {
     return generatePassword();
   }
   
-  // If at least one option returns true, add them to the empty array 'passwordKey'
+  // If at least one option returns true, add the true options to the empty array 'passwordKey'
   if (includeLowercase || includeUppercase || includeNumbers || includeSymbols) {
     var passwordKey = "";
     if (includeLowercase) {
@@ -47,7 +42,6 @@ var generatePassword = function() {
   // generate random number to pick out of 'passwordKey' array and add it to the 'answer' empty array
     var answer = "";
     for (var i = 0; i <numberOfCharacters; i++) {
-      // console.log(numberOfCharacters);
       answer += passwordKey[Math.floor(Math.random() * passwordKey.length)]
     }
     return answer;
@@ -68,7 +62,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
